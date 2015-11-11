@@ -3,7 +3,6 @@ import requests
 from tabulate import tabulate
 from datetime import timedelta, datetime
 import time
-from time import mktime
 import os
 
 
@@ -12,6 +11,8 @@ def get_dict_from_geeks_dict(geeks):
     for geek in geeks:
         table_one_geek = [geek.id, geek.name, geek.played_time_2weeks]
         final_table.append(table_one_geek)
+    # sort by bigger time played
+    final_table = sorted(final_table, key=lambda row: row[2], reverse=True)
     return final_table
 
 
