@@ -9,12 +9,17 @@ apt-get install python-pip
 ```
 Install some Python libs.
 ```
+pip install pyyaml
 pip install requests
 pip install tabulate
 pip install Django==1.7.10
 ```
 
-Open the file settings.yml in the root of the project and edit it accordingly to your steam account and your friends IDs.
+Clone the project
+```
+git clone https://github.com/Sispheor/SteamMasterFapper
+```
+Open the file **settings.yml** in the root of the project and edit it accordingly to your steam account and your friends IDs.
 
 # Usage
 Print the report in your current shell
