@@ -2,12 +2,14 @@ from Utils import utils
 
 
 class Geek:
-    def __init__(self, id):
+    def __init__(self, id, mail=None):
         self.id = id
+        self.mail = mail
         self.name = self._get_username_from_id(self.id)
         self.played_time_2weeks = self._get_playtime_2weeks(self.id)
 
-    def _get_username_from_id(self, friend_id):
+    @staticmethod
+    def _get_username_from_id(friend_id):
         cfg = utils.get_settings()
         url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key="\
               + cfg['API_STEAM_KEY'] + "&steamids="+str(friend_id)
@@ -22,7 +24,8 @@ class Geek:
         else:
             return "Does not exist"
 
-    def _get_playtime_2weeks(self, friend_id):
+    @staticmethod
+    def _get_playtime_2weeks(friend_id):
         cfg = utils.get_settings()
         url = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key="\
             + cfg['API_STEAM_KEY'] + "&steamid="+str(friend_id)+"&format=json"
