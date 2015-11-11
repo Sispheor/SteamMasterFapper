@@ -50,5 +50,5 @@ crontab -e
 
 Add this line to send it for example each sunday at 8 PM.
 ```
-* 20 * * 0 python /path/to/steammasterfapper/smf --mail >/dev/null 2>&1
+* 20 * * 0 python /path/to/SteamMasterFapper/smf.py --mail >/dev/null 2>&1
 ```
