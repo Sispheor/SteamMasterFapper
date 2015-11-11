@@ -1,7 +1,18 @@
 # Steam Master Fapper
 This python script show number of hours spent to play on steam in the last 2 weeks.
+You can show the report into your current shell or send it by email.
 
-# Installation
+Shell output example
+```
+               id  Name               Time played
+-----------------  ---------------  -------------
+12345678910111211  my_friend_1 	            85
+12345678910111212  me                       65
+12345678910111213  my_friend_2              23
+12345678910111214  my_friend_3              21
+```
+
+## Installation
  
 Pip is required, install it first 
 ```
@@ -21,7 +32,7 @@ git clone https://github.com/Sispheor/SteamMasterFapper
 ```
 Open the file **settings.yml** in the root of the project and edit it accordingly to your steam account and your friends IDs.
 
-# Usage
+## Usage
 Print the report in your current shell
 ```
 python smf.py --text
