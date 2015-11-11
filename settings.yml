@@ -1,0 +1,23 @@
+# Settings file, yaml syntax
+
+# Proxy URL, leave blank if none
+PROXY:
+
+# Get your Steam API key http://steamcommunity.com/dev/apikey
+API_STEAM_KEY : MYSTEAMAPIKEYFROMOFFICIALWEBSITE
+
+# List of friend
+# To get the steam ID, connect to https://steamcommunity.com/profiles/<your_profile_id>/friends/
+# In the list, click on one of your friend and look at the ID in the URL
+# You can leave blank the mail address.
+list_friend:
+ - steam_id: 12345678910111213
+   mail: fake@mail.com
+ - steam_id: 23456789101112131
+   mail:
+
+# List of mail addresses to send the report.
+# Useful if you want to send the mail to a mailling list like Googlegroups
+list_mail_to_send_report:
+  - my-geek-group@googlegroups.com
+
