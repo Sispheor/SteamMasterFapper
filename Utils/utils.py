@@ -9,6 +9,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.conf import settings
 import django
+from email.mime.image import MIMEImage
 
 
 def send_mail(message_text, message_html, mail_address):
@@ -16,6 +17,13 @@ def send_mail(message_text, message_html, mail_address):
         subject, from_email, to = 'Steam Master Fapper', 'root@mespotesgeek.fr', mail_address
         msg = EmailMultiAlternatives(subject, message_text, from_email, [to])
         msg.attach_alternative(message_html, "text/html")
+        # add image
+        image = "fapper.jpeg"
+        fp = open("Template/"+image, 'rb')
+        msg_img = MIMEImage(fp.read())
+        fp.close()
+        msg_img.add_header('Content-ID', '<{}>'.format(image))
+        msg.attach(msg_img)
         msg.send()
 
 
@@ -53,7 +61,7 @@ def print_in_shell(geeks):
     final_table = get_dict_from_geeks_dict(geeks)
 
     headers = ["id", "Name", "Time played"]
-    print tabulate(final_table, headers=headers, numalign="right")
+    return tabulate(final_table, headers=headers, numalign="right")
 
 
 def get_html_template(geeks):
