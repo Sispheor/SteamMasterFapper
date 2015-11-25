@@ -3,6 +3,7 @@ import requests
 from tabulate import tabulate
 from datetime import timedelta, datetime
 import time
+import yaml
 import os
 from django.core.mail import EmailMultiAlternatives
 from django.template import Context
@@ -38,8 +39,10 @@ def get_dict_from_geeks_dict(geeks):
 
 
 def get_settings():
-    import yaml
-    with open("settings.yml", 'r') as ymlfile:
+    current_directory = os.path.dirname(__file__)
+    parent_directory = os.path.split(current_directory)[0]
+    settings_file = os.path.join(parent_directory, 'settings.yml')
+    with open(settings_file, 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
     return cfg
 
