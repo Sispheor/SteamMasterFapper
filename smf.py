@@ -38,4 +38,4 @@ if __name__ == '__main__':
 
     if args.text:
         # Print the table in the current shell
-        print message_text
+        print message_text.encode('utf8')
