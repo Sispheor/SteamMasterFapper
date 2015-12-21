@@ -19,8 +19,10 @@ def send_mail(message_text, message_html, mail_address):
         msg = EmailMultiAlternatives(subject, message_text, from_email, [to])
         msg.attach_alternative(message_html, "text/html")
         # add image
-        image = "fapper.jpeg"
-        fp = open("Template/"+image, 'rb')
+        current_directory = os.path.dirname(__file__)
+        parent_directory = os.path.split(current_directory)[0]
+        image = os.path.join(parent_directory, "Template/fapper.jpeg")
+        fp = open(image, 'rb')
         msg_img = MIMEImage(fp.read())
         fp.close()
         msg_img.add_header('Content-ID', '<{}>'.format(image))
